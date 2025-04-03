@@ -18,7 +18,7 @@ import NoteCard from '../../components/common/NoteCard';
 import EmptyState from '../../components/common/EmptyState';
 import { getAllNotes } from '../../utils/noteUtils';
 
-export default function NoteList() {
+export default function NoteList(props) {
   const [notes, setNotes] = useState([]);
   const [filteredNotes, setFilteredNotes] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -53,7 +53,7 @@ export default function NoteList() {
   };
 
   return (
-    <MainLayout title="My Notes">
+    <MainLayout title="My Notes" setIsAuthenticated={props?.setIsAuthenticated}>
       <Box sx={{ mb: 4 }}>
         <Typography 
           variant="h4" 

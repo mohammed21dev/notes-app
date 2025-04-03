@@ -25,7 +25,7 @@ import NoteForm from "./NoteForm";
 import { formatDate } from "../../utils/dateUtils";
 import { getNoteById, updateNote, deleteNote } from "../../utils/noteUtils";
 
-export default function NoteDetail() {
+export default function NoteDetail(props) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [note, setNote] = useState(null);
@@ -61,7 +61,7 @@ export default function NoteDetail() {
 
   if (!note && !loading) {
     return (
-      <MainLayout>
+      <MainLayout setIsAuthenticated={props?.setIsAuthenticated}>
         <Box sx={{ textAlign: "center", py: 8 }}>
           <Typography variant="h5" color="error" gutterBottom>
             Note not found
@@ -80,7 +80,7 @@ export default function NoteDetail() {
   }
 
   return (
-    <MainLayout title={loading ? "Loading..." : note.title}>
+    <MainLayout title={loading ? "Loading..." : note.title} setIsAuthenticated={props?.setIsAuthenticated}>
       <Box sx={{ mb: 4 }}>
         <Button
           variant="outlined"

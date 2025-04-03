@@ -3,7 +3,7 @@ import MainLayout from '../../layouts/MainLayout';
 import NoteForm from './NoteForm';
 import { createNote } from '../../utils/noteUtils';
 
-export default function CreateNotePage() {
+export default function CreateNotePage(props) {
   const navigate = useNavigate();
   
   const handleSubmit = (noteData) => {
@@ -16,7 +16,7 @@ export default function CreateNotePage() {
   };
   
   return (
-    <MainLayout title="Create Note">
+    <MainLayout title="Create Note" setIsAuthenticated={props?.setIsAuthenticated}>
       <NoteForm 
         open={true}
         onClose={handleClose}

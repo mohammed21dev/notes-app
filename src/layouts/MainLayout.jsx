@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import NoteIcon from '@mui/icons-material/Note';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-export default function MainLayout({ children, title = 'Notes App' }) {
+export default function MainLayout({ children, title = 'Notes App' , setIsAuthenticated }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
+    setIsAuthenticated(false);
     navigate('/login');
   };
 

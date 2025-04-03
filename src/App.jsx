@@ -42,7 +42,7 @@ export default function App() {
             path="/"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <NoteList />
+                <NoteList setIsAuthenticated={setIsAuthenticated} />
               </ProtectedRoute>
             }
           />
@@ -50,7 +50,7 @@ export default function App() {
             path="/create"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <CreateNotePage />
+                <CreateNotePage setIsAuthenticated={setIsAuthenticated} />
               </ProtectedRoute>
             }
           />
@@ -58,7 +58,7 @@ export default function App() {
             path="/note/:id"
             element={
               <ProtectedRoute isAuthenticated={isAuthenticated}>
-                <NoteDetail />
+                <NoteDetail  setIsAuthenticated={setIsAuthenticated} />
               </ProtectedRoute>
             }
           />
